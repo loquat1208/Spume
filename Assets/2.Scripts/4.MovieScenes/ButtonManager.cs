@@ -18,11 +18,12 @@ public class ButtonManager : MonoBehaviour {
         movie_manager.setSelect( movie_manager.getSelect( ) + ( int )Mathf.Pow( 2.0f, ( float )event_num ) );
         PlayerPrefs.SetInt( "Select", movie_manager.getSelect( ) );
         PlayerPrefs.Save( );
-		SceneManager.LoadScene( "GameScene" );
+        movie_manager.nextScene( );
+        movie_manager.setSceneSelect( 1 );
     }
 
     public void Select2( ) {
-		SceneManager.LoadScene( "GameScene" );
+        movie_manager.nextScene( );
     }
 
     public void reset( ) {
