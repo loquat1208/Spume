@@ -71,6 +71,7 @@ public class MovieManager : MonoBehaviour {
     [SerializeField]
     private Vector3 PosScene15;
 
+    private AudioSource SE;
     private GameObject icon_1_1;
     private GameObject icon_1_2;
     private GameObject icon_1_3;
@@ -116,6 +117,7 @@ public class MovieManager : MonoBehaviour {
         icon_14_2 = GameObject.Find( "Icon14_2" ).gameObject;
         cut14_1 = GameObject.Find( "Cut14_1" ).gameObject;
         cut14_2 = GameObject.Find( "Cut14_2" ).gameObject;
+        SE = GameObject.Find( "SE" ).gameObject.GetComponent<AudioSource>( );
 
         _timer = 0.0f;
         _scene_num = 0;
@@ -133,6 +135,9 @@ public class MovieManager : MonoBehaviour {
     void playMovie( ) {
         switch ( _scene_num ) {
             case 0:
+                if ( !SE.isPlaying ) {
+                    SE.PlayOneShot( ( AudioClip )Resources.Load( "Sounds/SE/MovieTitle", typeof( AudioClip ) ), 1f );
+                }
                 icon_1_1.GetComponent<SpriteRenderer>( ).color = new Color( 255, 255, 255, _timer * 0.25f );
                 icon_1_3.GetComponent<SpriteRenderer>( ).color = new Color( 255, 255, 255, 1 - _timer * 0.15f );
                 icon_1_2.GetComponent<SpriteRenderer>( ).color = new Color( 255, 255, 255, 1 - _timer * 0.15f );
@@ -158,9 +163,23 @@ public class MovieManager : MonoBehaviour {
                 cameraMove( PosScene4, PosScene5, TimeScene4 );
                 break;
             case 5:
+                if ( !SE.isPlaying ) {
+                    AudioClip clip = ( AudioClip )Resources.Load( "Sounds/SE/Walk", typeof( AudioClip ) );
+                    SE.PlayOneShot( clip, 1f );
+                }
+                if ( _timer > 4f ) {
+                    SE.Stop( );
+                }
                 cameraMove( PosScene5, PosScene6, TimeScene5 );
                 break;
             case 6:
+                if ( !SE.isPlaying ) {
+                    AudioClip clip = ( AudioClip )Resources.Load( "Sounds/SE/Door", typeof( AudioClip ) );
+                    SE.PlayOneShot( clip, 1f );
+                }
+                if ( _timer > 1f ) {
+                    SE.Stop( );
+                }
                 cameraMove( PosScene6, PosScene7, TimeScene6 );
                 break;
             case 7:
@@ -171,6 +190,13 @@ public class MovieManager : MonoBehaviour {
                 cameraMove( PosScene7, PosScene8, TimeScene7 );
                 break;
             case 8:
+                if ( !SE.isPlaying ) {
+                    AudioClip clip = ( AudioClip )Resources.Load( "Sounds/SE/Hit2", typeof( AudioClip ) );
+                    SE.PlayOneShot( clip, 1f );
+                }
+                if ( _timer > 1f ) {
+                    SE.Stop( );
+                }
                 if ( _timer <= 1.0f ) {
                     cut9.transform.position += new Vector3( 0, Mathf.Sin( _timer * 8 * Mathf.PI ), 0 );
                 }
@@ -207,6 +233,13 @@ public class MovieManager : MonoBehaviour {
                 cameraMove( PosScene11, PosScene12, TimeScene11 );
                 break;
             case 12:
+                if ( !SE.isPlaying ) {
+                    AudioClip clip = ( AudioClip )Resources.Load( "Sounds/SE/Shot", typeof( AudioClip ) );
+                    SE.PlayOneShot( clip, 1f );
+                }
+                if ( _timer > 1f ) {
+                    SE.Stop( );
+                }
                 cameraMove( PosScene12, PosScene13, TimeScene12 );
                 if ( _scene_select == 0 ) {
                     cut14_1.SetActive( true );
@@ -233,7 +266,10 @@ public class MovieManager : MonoBehaviour {
                 cameraMove( PosScene14, PosScene15, TimeScene14 );
                 break;
             case 15:
-                SceneManager.LoadScene( "GameScene" );
+                GameObject.Find( "Fade" ).gameObject.GetComponent<Image>( ).color = new Color( 0, 0, 0, _timer / 2f );
+                if ( _timer > 3 ) {
+                    SceneManager.LoadScene( "GameScene" );
+                }
                 break;
             default:
                 break;

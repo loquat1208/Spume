@@ -22,4 +22,8 @@ public class LayerChangeButton : MonoBehaviour {
             gameObject.GetComponent<Image>( ).sprite = Outside;
         }
     }
+
+    public void setImageInside( ) {
+        gameObject.GetComponent<Image>( ).sprite = Inside;
+    }
 }

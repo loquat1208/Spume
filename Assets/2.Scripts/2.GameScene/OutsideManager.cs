@@ -439,7 +439,7 @@ public class OutsideManager : MonoBehaviour {
             if ( selected.transform.name == "Chara1" ) {
                 return false;
             }
-            if ( selected.transform.name == "Chara1" ) {
+            if ( selected.transform.name == "Chara2" ) {
                 return false;
             }
             return true;

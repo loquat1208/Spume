@@ -19,7 +19,6 @@ public class GaugeBar : MonoBehaviour {
 	}
 
 	void Start( ) {
-		_speed = _game_system.getTimerSpeed( );
 		switch ( _outside_manager.getOutsideState( ) ) {
 			case OUTSIDE_STATE.EXPLORE:
 				_gauge_max = ( int )_event_data.getData( _game_system.randEvent( ), EVENTDATA.TIME );
@@ -34,6 +33,7 @@ public class GaugeBar : MonoBehaviour {
 	}
 
 	void Update( ) {
+		_speed = _game_system.getTimerSpeed( );
 		if ( _gauge > _gauge_max * 60 ) {
 			Destroy( gameObject );
 		}

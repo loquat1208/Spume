@@ -11,7 +11,8 @@ public enum LAYER {
 public class GameSystem : MonoBehaviour {
     public int MAIN_EVENT_INTERVAL = 10;
     public int MAIN_EVENT_MAX = 4;
-    public float DefaultTimeSpeed = 8;
+    public float DefaultTimeSpeed = 1;
+    public int NextEvent;
 
     private int max_days;
     private int days;
@@ -40,7 +41,8 @@ public class GameSystem : MonoBehaviour {
         _characters = GameObject.Find( "Characters" ).gameObject.GetComponent<Characters>( );
         _event_data = GameObject.Find( "EventSystem" ).gameObject.GetComponent<EventData>( );
         ship_status = GameObject.Find( "Ship" ).gameObject.GetComponent<ShipStatus>( );
-        rand_event = Random.Range( 0, ( int )_event_data.getMaxData( ) );
+        //rand_event = Random.Range( 0, ( int )_event_data.getMaxData( ) );
+        rand_event = 0;
         fade = GameObject.Find( "Fade" ).gameObject;
         fade_text = GameObject.Find( "FadeText" ).gameObject;
         watch = GameObject.Find( "Watch" ).gameObject;
@@ -182,7 +184,8 @@ public class GameSystem : MonoBehaviour {
 		StartCoroutine( "FadeIn" );
         time = 60 * 12;
         _timer_speed = DefaultTimeSpeed;
-        rand_event = Random.Range( 0, ( int )_event_data.getMaxData( ) );
+        //rand_event = Random.Range( 0, ( int )_event_data.getMaxData( ) );
+        rand_event = NextEvent;
         log.GetComponent<LogManager>( ).setSubSelect( false );
         _characters.nextDay( );
         ship_status.setFuels( ship_status.getResources( ).fuels - 1 );

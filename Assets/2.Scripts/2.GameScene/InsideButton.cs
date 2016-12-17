@@ -81,6 +81,8 @@ public class InsideButton : MonoBehaviour {
 			chara_manager.getCharacter( i ).setPlace( LAYER.INSIDE );
 		}
         Status status = chara_manager.getCharacter( inside_manager.getMenu( ) );
+        LayerChangeButton layer_change_button = GameObject.Find( "LayerChangeButton" ).gameObject.GetComponent<LayerChangeButton>( );
+        layer_change_button.setImageInside( );
         menus.transform.position = new Vector3( 1600.0f, 0.0f, 0.0f );
         status.setPlace( LAYER.OUTSIDE );
 		_game_system.setLayer( LAYER.OUTSIDE );

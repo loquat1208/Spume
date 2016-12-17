@@ -84,7 +84,7 @@ public class OutsideAnimation : MonoBehaviour {
 
     void updateMove( ) {
         for ( int i = 0; i < 5; i++ ) {
-            WaveObject( _morning_sea[ i ], SeaAmpplitude[ i ], _timer, i + 1, -150 );
+            WaveObject( _morning_sea[ i ], SeaAmpplitude[ i ], _timer, i + 1, -120 );
             WaveObject( _sunset_sea[ i ], SeaAmpplitude[ i ], _timer, i + 1, -150 );
             WaveObject( _night_sea[ i ], SeaAmpplitude[ i ], _timer, i + 1, -150 );
         }

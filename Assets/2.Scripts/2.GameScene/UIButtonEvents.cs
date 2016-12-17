@@ -8,8 +8,8 @@ public class UIButtonEvents : MonoBehaviour {
     private GameSystem game_system;
     private GameObject Ship_status_window;
     private GameObject status_window;
-	private GameObject Help_window;
-	private GameObject chara_status;
+    private GameObject Help_window;
+    private GameObject chara_status;
     private GameObject option_layer;
 
     void Awake( ) {
@@ -20,7 +20,7 @@ public class UIButtonEvents : MonoBehaviour {
         option_layer = GameObject.Find( "OptionLayer" ).gameObject;
         Help_window = GameObject.Find( "HelpWindow" ).gameObject;
 
-		chara_status = GameObject.Find( "StatusWindow" ).gameObject;
+        chara_status = GameObject.Find( "StatusWindow" ).gameObject;
     }
 
     void Start( ) {
@@ -30,7 +30,10 @@ public class UIButtonEvents : MonoBehaviour {
     }
 
     public void NextDayButton( ) {
-        if ( log_manager.isLogOpened(  ) ) {
+        if ( log_manager.isLogOpened( ) ) {
+            return;
+        }
+        if ( game_system.getTime( ) < 12 * 60 + 10 ) {
             return;
         }
         game_system.NextDay( );
@@ -38,8 +41,8 @@ public class UIButtonEvents : MonoBehaviour {
     }
 
     public void ChangeLayer( ) {
-		log_manager.setLogOpen( false );
-		chara_status.SetActive( false );
+        log_manager.setLogOpen( false );
+        chara_status.SetActive( false );
         LAYER layer = game_system.getLayer( );
         if ( layer == LAYER.OUTSIDE ) {
             Ship_status_window.SetActive( false );
@@ -73,7 +76,7 @@ public class UIButtonEvents : MonoBehaviour {
         if ( Ship_status_window.activeSelf ) {
             Ship_status_window.SetActive( false );
         } else {
-			Ship_status_window.transform.position = new Vector3( 30, -240, 0 );
+            Ship_status_window.transform.position = new Vector3( 30, -240, 0 );
             Ship_status_window.SetActive( true );
         }
     }
@@ -84,6 +87,14 @@ public class UIButtonEvents : MonoBehaviour {
         } else {
             Help_window.transform.position = new Vector3( 0, 0, 0 );
             Help_window.SetActive( true );
+        }
+    }
+
+    public void FastButton( ) {
+        if ( game_system.getTimerSpeed( ) != game_system.getTimerSpeedDefault( ) ) {
+            game_system.setTimerSpeed( game_system.getTimerSpeedDefault( ) );
+        } else {
+            game_system.setTimerSpeed( 8 );
         }
     }
 }
