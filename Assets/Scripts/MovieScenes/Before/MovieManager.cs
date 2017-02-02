@@ -302,6 +302,10 @@ public class MovieManager : MonoBehaviour {
         _timer = 0;
     }
 
+	public int getScene( ) {
+		return _scene_num;
+	}
+
     public void setSceneSelect( int select ) {
         _scene_select = select;
     }

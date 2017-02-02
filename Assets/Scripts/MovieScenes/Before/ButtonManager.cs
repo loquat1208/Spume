@@ -10,6 +10,7 @@ public class ButtonManager : MonoBehaviour {
     }
 
     public void SkipMovie( ) {
+		if ( movie_manager.getScene( ) > 10 ) { return; }
         movie_manager.setScene( 11 );
     }
 

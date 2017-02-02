@@ -59,7 +59,8 @@ public class LogText : MonoBehaviour {
 
 	void updateRightUp( ) {
         //Eventに必要な時間が過ぎていないと表示いない。
-        if ( !_outside_manager.isEventUpdate( ) ) {
+        if ( !_outside_manager.isEventUpdate( )
+			&& !_outside_manager.getTodayEventDone( )) {
             gameObject.GetComponent<Text>( ).text = "";
             return;
         }
@@ -68,7 +69,8 @@ public class LogText : MonoBehaviour {
 
     void updateRightDown( ) {
         //Eventに必要な時間が過ぎていないと表示いない。
-        if ( !_outside_manager.isEventUpdate( ) ) {
+		if ( !_outside_manager.isEventUpdate( ) 
+			&& !_outside_manager.getTodayEventDone( ) ) {
             gameObject.GetComponent<Text>( ).text = "";
             return;
         }
@@ -88,7 +90,8 @@ public class LogText : MonoBehaviour {
 	//イベントの結果を書く
 	void resultPage( ) {
 		//Eventに必要な時間が過ぎていないと表示いない。
-		if ( !_outside_manager.isEventUpdate( ) ) {
+		if ( !_outside_manager.isEventUpdate( )
+			&& !_outside_manager.getTodayEventDone( )) {
 			gameObject.GetComponent<Text>( ).text = "";
 			return;
 		}
@@ -128,11 +131,11 @@ public class LogText : MonoBehaviour {
 		gameObject.GetComponent<Text>( ).text = "FUELS : " + fuels
 											+ " FOODS : " + foods
 											+ " WATER : " + water + "\n"
-											+ " GUN : " + guns
-											+ " MEDIKIT : " + medi
+                                            + "ROD : " + rods
+                                            + " POT : " + pots
 											+ " REPAIRTOOL : " + repair + "\n"
-											+ " ROD : " + rods
-											+ " POT : " + pots
+											+ "MEDIKIT : " + medi
+                                            + " GUN : " + guns
 											+ " HEALTH : " + health;
 	}
 

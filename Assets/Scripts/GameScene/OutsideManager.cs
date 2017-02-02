@@ -185,6 +185,7 @@ public class OutsideManager : MonoBehaviour {
 		today_event_end = true;
         PlayerPrefs.SetInt( "TodayEvent", 1 );
         PlayerPrefs.Save( );
+		Debug.Log( PlayerPrefs.GetInt( "TodayEvent" ) );
     }
 
 
@@ -270,10 +271,15 @@ public class OutsideManager : MonoBehaviour {
         return is_event_update;
     }
     
-	//その日イベントをやったのかをゲットする
+	//その日イベント状態をセットする
     public void setTodayEventDone( bool flag ) {
         today_event_end = flag;
     }
+
+	//その日イベントをやったのかをゲットする
+	public bool getTodayEventDone( ) {
+		return today_event_end;
+	}
 
 	//次の日になる
     public void NextDay( ) {
@@ -421,13 +427,17 @@ public class OutsideManager : MonoBehaviour {
         _event_button.SetActive( false );
         //吹き出し
         Vector3 speech_pos = _outside_chara.transform.position + new Vector3( -40, 180, 0 );
+        //Outsideに誰もいないときはできない。
+        if ( !_outside_chara.activeSelf ) {
+            return;
+        }
         //OUTSIDEに主人公がいるときはできない。
         if ( selected == null ) {
             GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
             _speech.GetComponent<Speech>( ).setSpeech( gameObject, "俺は船から出ることはできない。" );
             return;
         }
-             //キャラーが船で何かしているとできない。
+        //キャラーが船で何かしているとできない。
         if ( !_state.Equals( OUTSIDE_STATE.NONE ) ) {
             if ( _state.Equals( OUTSIDE_STATE.EXPLORE ) ) {
                 speech_pos = _event_object.transform.position + new Vector3( -40, 100, 0 );
@@ -473,6 +483,7 @@ public class OutsideManager : MonoBehaviour {
 
     public void EventNo( ) {
         _event_button.SetActive( false );
+        //冒険中じゃないと反応しない。
         if ( !_state.Equals( OUTSIDE_STATE.EXPLORE ) ) {
             return;
         }

@@ -76,7 +76,7 @@ public class InsideButton : MonoBehaviour {
         menus.transform.position = new Vector3( 1600.0f, 0.0f, 0.0f );
         status.setPlace( LAYER.OUTSIDE );
         _game_system.setLayer( LAYER.OUTSIDE );
-        inside_manager.gameObject.transform.position = new Vector3( 1600.0f, 0.0f, 0.0f );
+        inside_manager.gameObject.transform.position = new Vector3( 1800.0f, 0.0f, 0.0f );
 		outside_manager.gameObject.transform.position = new Vector3( 0.0f, 0.0f, 0.0f );
         outside_chara.SetActive( true );
     }

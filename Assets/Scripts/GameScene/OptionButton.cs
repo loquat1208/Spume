@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class OptionButton : MonoBehaviour {
 
-    private GameSystem game_system;
+	private GameSystem game_system;
+	private UIButtonEvents UI_button_event;
 
     private void Awake( ) {
-        game_system = GameObject.Find( "GameSystem" ).gameObject.GetComponent<GameSystem>( );
+		game_system = GameObject.Find( "GameSystem" ).gameObject.GetComponent<GameSystem>( );
+		UI_button_event = GameObject.Find( "UIButtonEvent" ).gameObject.GetComponent<UIButtonEvents>( );
     }
 
     public void goToTitle( ) {
@@ -22,8 +24,8 @@ public class OptionButton : MonoBehaviour {
         Application.Quit( );
     }
 
-    public void backButton( ) {
-        game_system.setTimerSpeed( game_system.getTimerSpeedDefault( ) );
+	public void backButton( ) {
+		game_system.setTimerSpeed( UI_button_event.getTimeSpeedSave( ) );
         gameObject.SetActive( false );
     }
 }

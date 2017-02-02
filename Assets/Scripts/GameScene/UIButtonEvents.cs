@@ -21,6 +21,7 @@ public class UIButtonEvents : MonoBehaviour {
     private GameObject _event_button;
     private GameObject state_button;
     private GameObject fast_button;
+	private float time_speed_save;
 
     void Awake( ) {
         _log_manager = GameObject.Find( "Log" ).gameObject.GetComponent<LogManager>( );
@@ -42,7 +43,12 @@ public class UIButtonEvents : MonoBehaviour {
         Ship_status_window.SetActive( false );
         Help_window.SetActive( false );
         option_layer.SetActive( false );
+		time_speed_save = 0;
     }
+
+	public float getTimeSpeedSave( ) {
+		return time_speed_save;
+	}
 
     public void NextDayButton( ) {
         if ( _log_manager.isLogOpened( ) ) {
@@ -69,10 +75,10 @@ public class UIButtonEvents : MonoBehaviour {
             Ship_status_window.SetActive( false );
             game_system.setLayer( LAYER.INSIDE );
             inside_layer.transform.position = new Vector3( 0, 0, 0 );
-			outside_layer.transform.position = new Vector3( 1600, 0, 0 );
+			outside_layer.transform.position = new Vector3( 1800, 0, 0 );
         } else {
             game_system.setLayer( LAYER.OUTSIDE );
-            inside_layer.transform.position = new Vector3( 1600, 0, 0 );
+            inside_layer.transform.position = new Vector3( 1800, 0, 0 );
             outside_layer.transform.position = new Vector3( 0, 0, 0 );
         }
     }
@@ -86,6 +92,7 @@ public class UIButtonEvents : MonoBehaviour {
     }
 
     public void GoToOption( ) {
+		time_speed_save = game_system.getTimerSpeed( );
         game_system.setTimerSpeed( 0 );
         option_layer.transform.position = Vector3.zero;
         option_layer.SetActive( true );

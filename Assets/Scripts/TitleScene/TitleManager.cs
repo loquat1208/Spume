@@ -6,7 +6,7 @@ public class TitleManager : MonoBehaviour {
 	private GameObject mark;
 
     private void Awake( ) {
-        Screen.SetResolution( Screen.width, Screen.width * 9 / 16, true );
+		Screen.SetResolution( Screen.width, Screen.width * 9 / 16, true );
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
