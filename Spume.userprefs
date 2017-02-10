@@ -1,0 +1,19 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameScene/StatusWindowText.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Loading.cs" Line="6" Column="1" />
+      <File FileName="Assets/Scripts/GameScene/OutsideManager.cs" Line="338" Column="24" />
+      <File FileName="Assets/Scripts/GameScene/GameSystem.cs" Line="113" Column="4" />
+      <File FileName="Assets/Scripts/GameScene/Arrow.cs" Line="12" Column="25" />
+      <File FileName="Assets/Scripts/GameScene/Status.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameScene/LogText.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameScene/ShipStatusWindowText.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameScene/StatusWindowText.cs" Line="37" Column="44" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

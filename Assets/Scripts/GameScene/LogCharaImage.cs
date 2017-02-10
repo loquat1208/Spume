@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 //Logにある各キャラのImage管理
 public class LogCharaImage : MonoBehaviour {
-
+	public Sprite Death;
+	public Sprite Sick;
 	private LogManager _log_manager;
 	private Characters _characters;
 
@@ -21,47 +22,36 @@ public class LogCharaImage : MonoBehaviour {
 		}
 		switch ( gameObject.name ) {
 			case "DeathMark1":
-				if ( _characters.getCharacter( 1 ).getStatus( ).death ) {
-					gameObject.GetComponent<Image>( ).enabled = true;
-				} else { 
-					gameObject.GetComponent<Image>( ).enabled = false;
-				}
+				setImage( 1 );
 				break;
 			case "DeathMark2":
-				if ( _characters.getCharacter( 2 ).getStatus( ).death ) {
-					gameObject.GetComponent<Image>( ).enabled = true;
-				} else { 
-					gameObject.GetComponent<Image>( ).enabled = false;
-				}
+				setImage( 2 );
 				break;
 			case "DeathMark3":
-				if ( _characters.getCharacter( 3 ).getStatus( ).death ) {
-					gameObject.GetComponent<Image>( ).enabled = true;
-				} else { 
-					gameObject.GetComponent<Image>( ).enabled = false;
-				}
+				setImage( 3 );
 				break;
 			case "DeathMark4":
-				if ( _characters.getCharacter( 4 ).getStatus( ).death ) {
-					gameObject.GetComponent<Image>( ).enabled = true;
-				} else { 
-					gameObject.GetComponent<Image>( ).enabled = false;
-				}
+				setImage( 4 );
 				break;
 			case "DeathMark5":
-				if ( _characters.getCharacter( 5 ).getStatus( ).death ) {
-					gameObject.GetComponent<Image>( ).enabled = true;
-				} else { 
-					gameObject.GetComponent<Image>( ).enabled = false;
-				}
+				setImage( 5 );
 				break;
 			case "DeathMark6":
-				if ( _characters.getCharacter( 6 ).getStatus( ).death ) {
-					gameObject.GetComponent<Image>( ).enabled = true;
-				} else { 
-					gameObject.GetComponent<Image>( ).enabled = false;
-				}
+				setImage( 6 );
 				break;
+		}
+	}
+
+	void setImage( int num ) {
+		if ( _characters.getCharacter( num ).getStatus( ).disease ) {
+			gameObject.GetComponent<Image>( ).sprite = Sick;
+			gameObject.GetComponent<Image>( ).enabled = true;
+		} else {
+			gameObject.GetComponent<Image>( ).enabled = false;
+		}
+		if ( _characters.getCharacter( num ).getStatus( ).death ) {
+			gameObject.GetComponent<Image>( ).sprite = Death;
+			gameObject.GetComponent<Image>( ).enabled = true;
 		}
 	}
 }
