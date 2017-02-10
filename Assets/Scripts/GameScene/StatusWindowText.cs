@@ -29,7 +29,7 @@ public class StatusWindowText : MonoBehaviour {
 			case "HealthText":
 				gameObject.GetComponent<Text>( ).text = status.getStatus( ).health.ToString( );
 				break;
-			case "LoyaltyText":
+			case "FriendlyText":
 				gameObject.GetComponent<Text>( ).text = status.getStatus( ).loyalty.ToString( );
 				break;
 			case "DiseaseText":
