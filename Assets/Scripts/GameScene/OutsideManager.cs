@@ -102,6 +102,16 @@ public class OutsideManager : MonoBehaviour {
 		}
     }
 
+	//outsideに人がいるのかを確認
+	public bool isNoPeopleOutside( ) {
+		for ( int i = 1; i < 7; i++ ) {
+			if ( isOutside( _characters.getCharacter( i ) ) ) {
+				return false;
+			} 
+		}
+		return true;
+	}
+
     //キャラを描く
     void drawCharacter( OUTSIDE_STATE state ) {
         for ( int i = 1; i < 7; i++ ) {
@@ -124,6 +134,9 @@ public class OutsideManager : MonoBehaviour {
             }
 			selected = _characters.getCharacter( i );
         }
+		if ( isNoPeopleOutside( ) ) {
+			_outside_chara.GetComponent<Image>( ).sprite = None;
+		}
     }
 
     //各キャラが今Outsideにいるのかを判断
@@ -227,6 +240,20 @@ public class OutsideManager : MonoBehaviour {
 				GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
                 _speech.GetComponent<Speech>( ).setSpeech( gameObject, "何も引っかからなかった。" );
             }
+
+			//道具が壊れる。
+			//成功確率（数字が高くなると確率が下がる）
+			const int TOOL_BROKEN_PROBABILITY = 9;
+			int tool_probability = Random.Range( 0, TOOL_BROKEN_PROBABILITY );
+			if ( tool_probability == 0 ) {
+				//吹き出し
+				Vector3 speech_pos = _outside_chara.transform.position + new Vector3( -40, 180, 0 );
+				GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
+				_speech.GetComponent<Speech>( ).setSpeech( gameObject, "釣竿が壊れてしまった。" );
+				//ShipのStatus変更
+				_ship_status.setRods( _ship_status.getResources( ).rods - 1 );
+			}
+
 			//workingのupdateができないように時間を設定する
 			_working_update_time = 25 * 60;
 		}
@@ -249,6 +276,20 @@ public class OutsideManager : MonoBehaviour {
                 GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
                 _speech.GetComponent<Speech>( ).setSpeech( gameObject, "汚くて飲める気がしない。" );
             }
+
+			//道具が壊れる。
+			//成功確率（数字が高くなると確率が下がる）
+			const int TOOL_BROKEN_PROBABILITY = 7;
+			int tool_probability = Random.Range( 0, TOOL_BROKEN_PROBABILITY );
+			if ( tool_probability == 0 ) {
+				//吹き出し
+				Vector3 speech_pos = _outside_chara.transform.position + new Vector3( -40, 180, 0 );
+				GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
+				_speech.GetComponent<Speech>( ).setSpeech( gameObject, "道具が壊れてしまった。" );
+				//ShipのStatus変更
+				_ship_status.setPots( _ship_status.getResources( ).pots - 1 );
+			}
+
 			//workingのupdateができないように時間を設定する
 			_working_update_time = 25 * 60;
 		}
@@ -294,6 +335,9 @@ public class OutsideManager : MonoBehaviour {
         _event_update_time = 25 * 60;
 		_working_update_time = 25 * 60;
         _state = OUTSIDE_STATE.NONE;
+		if ( selected != null ) {
+			selected.setPlace( LAYER.INSIDE );
+		}
     }
 
     public void fishingButton( ) {
@@ -392,16 +436,10 @@ public class OutsideManager : MonoBehaviour {
             _speech.GetComponent<Speech>( ).setSpeech( gameObject, "仕事中だよ。" );
             return;
         }
-        _outside_chara.SetActive( false );
         selected.setPlace( LAYER.INSIDE );
     }
 
     public void drawEventSelectButton( ) {
-        /*if ( is_event_update ) {
-            x_mark.SetActive( true );
-        } else {
-            x_mark.SetActive( false );
-        }*/
         if ( _event_button.activeSelf ) {
             _event_button.SetActive( false );
         } else {
@@ -428,13 +466,9 @@ public class OutsideManager : MonoBehaviour {
         //吹き出し
         Vector3 speech_pos = _outside_chara.transform.position + new Vector3( -40, 180, 0 );
         //Outsideに誰もいないときはできない。
-        if ( !_outside_chara.activeSelf ) {
-            return;
-        }
-        //OUTSIDEに主人公がいるときはできない。
-        if ( selected == null ) {
-            GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
-            _speech.GetComponent<Speech>( ).setSpeech( gameObject, "俺は船から出ることはできない。" );
+		if ( isNoPeopleOutside( ) ) {
+			GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
+			_speech.GetComponent<Speech>( ).setSpeech( gameObject, "俺は船から出ることはできない。" );
             return;
         }
         //キャラーが船で何かしているとできない。
