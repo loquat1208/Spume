@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{6DFE1F7A-1F23-D2DD-6D18-A7CA5C3B49D9}") = "SPUME", "Assembly-CSharp.csproj", "{A8723787-3F05-3F7A-D968-AB3D570EB9AB}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spume", "Assembly-CSharp.csproj", "{6AF260DC-F916-B86E-D3C8-63134D581B88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A8723787-3F05-3F7A-D968-AB3D570EB9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8723787-3F05-3F7A-D968-AB3D570EB9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8723787-3F05-3F7A-D968-AB3D570EB9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8723787-3F05-3F7A-D968-AB3D570EB9AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AF260DC-F916-B86E-D3C8-63134D581B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AF260DC-F916-B86E-D3C8-63134D581B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AF260DC-F916-B86E-D3C8-63134D581B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AF260DC-F916-B86E-D3C8-63134D581B88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

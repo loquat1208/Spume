@@ -13,11 +13,11 @@ public class InsideManager : MonoBehaviour {
         _menu = menu;
     }
 
-    public int getStatusWindow( ) {
+    /*public int getStatusWindow( ) {
         return _status_window;
     }
 
     public void setStatusWindow( int status_window ) {
         _status_window = status_window;
-    }
+    }*/
 }

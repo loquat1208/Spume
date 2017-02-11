@@ -26,6 +26,7 @@ public class InsideCharacterMenu : MonoBehaviour {
 			return;
 		}
         menus.transform.position = gameObject.GetComponent<Status>( ).getMenuPos( );
+		status_window.SetActive( true );
 		//どんなキャラが選ばれたのかセットする
         for ( int i = 1; i < 7; i++ ) {
             if ( gameObject.name == "Chara" + i.ToString( ) ) {
@@ -34,7 +35,7 @@ public class InsideCharacterMenu : MonoBehaviour {
         }
     }
 
-	public void StatusActive( ) {
+	/*public void StatusActive( ) {
 		//Logが開いていると表示しない
 		if ( log.GetComponent<LogManager>( ).isLogOpened( ) ) {
 			return;
@@ -50,5 +51,5 @@ public class InsideCharacterMenu : MonoBehaviour {
                 inside_manager.setStatusWindow( i );
             }
         }
-    }
+    }*/
 }

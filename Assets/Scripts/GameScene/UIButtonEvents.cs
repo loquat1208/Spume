@@ -65,6 +65,14 @@ public class UIButtonEvents : MonoBehaviour {
         fast_button.GetComponent<Image>( ).sprite = Fast;
     }
 
+	public void shipStatusButton( ) {
+		if ( Ship_status_window.activeSelf ) {
+			Ship_status_window.SetActive( false );
+		} else {
+			Ship_status_window.SetActive( true );
+		}
+	}
+
     public void ChangeLayer( ) {
         _log_manager.setLogOpen( false );
         chara_status.SetActive( false );

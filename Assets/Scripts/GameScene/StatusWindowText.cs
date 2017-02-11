@@ -14,7 +14,7 @@ public class StatusWindowText : MonoBehaviour {
 		
     void Update( ) {
         InsideManager inside_manager = inside_system.GetComponent<InsideManager>( );
-        Status status = _characters.getCharacter( inside_manager.getStatusWindow( ) );
+		Status status = _characters.getCharacter( inside_manager.getMenu( ) );
 		if ( status.getStatus( ).death ) {
 			gameObject.GetComponent<Text>( ).text = "";
 			return;
