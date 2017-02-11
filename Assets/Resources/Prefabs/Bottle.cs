@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bird : MonoBehaviour {
+public class Bottle : MonoBehaviour {
 	public GameObject Plus;
 	public float Speed = 1f;
 	public float LifeTime = 20f;
@@ -20,8 +20,8 @@ public class Bird : MonoBehaviour {
 	void Start( ) {
 		_HP_max = 3;
 		_HP = _HP_max;
-		transform.position = new Vector3( 1000, Random.Range( 0, 400 ), 0 );
-		transform.parent = GameObject.Find( "OutsideLayer" ).transform;
+		transform.position = new Vector3( 1000, -300, 0 );
+		transform.parent = GameObject.Find( "Sea04" ).transform;
 	}
 
 	void Update( ) {
@@ -31,8 +31,9 @@ public class Bird : MonoBehaviour {
 		//HPが０より小さいと死ぬ
 		if ( _HP <= 0 ) {
 			ShipStatus _ship_status = _game_system.GetComponent<ShipStatus>( );
-			_ship_status.setFoods( _ship_status.getResources( ).foods + 1 );
+			_ship_status.setFoods( _ship_status.getResources( ).water + 1 );
 			Instantiate( Plus, transform.position, new Quaternion( ), GameObject.Find( "UILayer" ).gameObject.transform );
+			Plus.GetComponent<Plus1> ().setColor (PLUSCOLOR.BLUE);
 			Destroy( gameObject );
 		}
 		//一定時間がすぎると死ぬ

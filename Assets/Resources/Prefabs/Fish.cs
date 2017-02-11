@@ -4,12 +4,12 @@ using System.Collections;
 public class Fish : MonoBehaviour {
     public GameObject Plus;
     public float LifeTime = 10f;
+	public int _HP_max = 3;
 
     private GameObject HP_image;
     private GameObject HP_gauge;
     private GameObject _game_system;
     private int _HP;
-    private int _HP_max;
     private float _timer;
 
     private void Awake( ) {
