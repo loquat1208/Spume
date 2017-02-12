@@ -28,6 +28,7 @@ public class Fish : MonoBehaviour {
 
 	void Update( ) {
         _timer += Time.deltaTime * _game_system.GetComponent<GameSystem>( ).getTimerSpeed( );
+		GetComponent<Animator>( ).speed = _game_system.GetComponent<GameSystem>( ).getTimerSpeed( );
         //HPが０より小さいと死ぬ
 		if ( _HP <= 0 ) {
             ShipStatus _ship_status = _game_system.GetComponent<ShipStatus>( );

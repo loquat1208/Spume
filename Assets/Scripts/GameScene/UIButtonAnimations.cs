@@ -2,41 +2,30 @@
 using System.Collections;
 
 public class UIButtonAnimations : MonoBehaviour {
-    public GameObject page;
+	public GameObject Page;
+    public GameObject Back;
 
     public void PointEnterUP( ) {
-        Vector3 pos = transform.position;
-        Vector3 page_pos = page.transform.position;
-        pos.y += 10;
-        page_pos.y += 10;
-        transform.position = pos;
-        page.transform.position = page_pos;
+		Page.transform.position += new Vector3( 0, 10, 0 );
+		Back.transform.position += new Vector3( 0, 10, 0 );
+		transform.position += new Vector3( 0, 10, 0 );
     }
 
     public void PointExitDown( ) {
-        Vector3 pos = transform.position;
-        Vector3 page_pos = page.transform.position;
-        pos.y -= 10;
-        page_pos.y -= 10;
-        transform.position = pos;
-        page.transform.position = page_pos;
+		Page.transform.position += new Vector3( 0, -10, 0 );
+		Back.transform.position += new Vector3( 0, -10, 0 );
+		transform.position += new Vector3( 0, -10, 0 );
     }
 
     public void PointEnterRight( ) {
-        Vector3 pos = transform.position;
-        Vector3 page_pos = page.transform.position;
-        pos.x += 10;
-        page_pos.x += 10;
-        transform.position = pos;
-        page.transform.position = page_pos;
+		Page.transform.position += new Vector3( 10, 0, 0 );
+		Back.transform.position += new Vector3( 10, 0, 0 );
+		transform.position += new Vector3( 10, 0, 0 );
     }
 
     public void PointExitLeft( ) {
-        Vector3 pos = transform.position;
-        Vector3 page_pos = page.transform.position;
-        pos.x -= 10;
-        page_pos.x -= 10;
-        transform.position = pos;
-        page.transform.position = page_pos;
+		Page.transform.position += new Vector3( -10, 0, 0 );
+		Back.transform.position += new Vector3( -10, 0, 0 );
+		transform.position += new Vector3( -10, 0, 0 );
     }
 }

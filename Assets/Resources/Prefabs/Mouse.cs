@@ -7,14 +7,14 @@ public class Mouse : MonoBehaviour {
     public int MaxHP = 5;
 
     private GameObject HP_image;
-    private GameObject HP_gauge;
+    //private GameObject HP_gauge;
     private GameObject _game_system;
     private int _HP;
     private int _Random;
     private float _timer;
 
     private void Awake( ) {
-        HP_gauge = GameObject.Find( "HPGauge" ).gameObject;
+        //HP_gauge = GameObject.Find( "HPGauge" ).gameObject;
         HP_image = GameObject.Find( "HP" ).gameObject;
         _game_system = GameObject.Find( "GameSystem" ).gameObject;
     }

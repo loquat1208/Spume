@@ -36,6 +36,7 @@ public class GameSystem : MonoBehaviour {
 	private GameObject death_num;
     private GameObject death;
     private GameObject log;
+	private GameObject _help_window;
     private GameObject _log_sub_select;
 
     void Awake( ) {
@@ -52,7 +53,8 @@ public class GameSystem : MonoBehaviour {
 		death = GameObject.Find( "Death" ).gameObject;
         watch = GameObject.Find( "Watch" ).gameObject;
         log = GameObject.Find( "Log" ).gameObject;
-        _log_sub_select = GameObject.Find( "SubSelect" ).gameObject;
+		_log_sub_select = GameObject.Find( "SubSelect" ).gameObject;
+		_help_window = GameObject.Find( "HelpWindow" ).gameObject;
         _ship_status = gameObject.GetComponent<ShipStatus>( );
         init( );
     }
@@ -110,10 +112,8 @@ public class GameSystem : MonoBehaviour {
 			PlayerPrefs.SetFloat( "Time", time );
 			PlayerPrefs.SetInt( "Days", 1 );
 			PlayerPrefs.Save( );
-			GameObject.Find( "HelpButton" ).gameObject.GetComponent<Image>().material = Resources.Load( "Lim", typeof( Material ) ) as Material;
-		} else {
-			GameObject.Find( "Arrow" ).gameObject.SetActive( false );
-		}
+			_help_window.SetActive( true );
+		} 
 		//ロードゲームの時
         days = PlayerPrefs.GetInt( "Days" );
         StartCoroutine( "FadeIn" );
@@ -260,6 +260,9 @@ public class GameSystem : MonoBehaviour {
     
 	//Dataの保存
     public void dataSave( ) {
+		for ( int i = 1; i < 7; i++ ) {
+			_characters.getCharacter( i ).saveStatus( );
+		}
         _ship_status.saveData( );
         PlayerPrefs.SetInt( "Days", days );
 		PlayerPrefs.SetFloat( "Time", time );

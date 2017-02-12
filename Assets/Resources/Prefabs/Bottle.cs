@@ -33,7 +33,7 @@ public class Bottle : MonoBehaviour {
 			ShipStatus _ship_status = _game_system.GetComponent<ShipStatus>( );
 			_ship_status.setFoods( _ship_status.getResources( ).water + 1 );
 			Instantiate( Plus, transform.position, new Quaternion( ), GameObject.Find( "UILayer" ).gameObject.transform );
-			Plus.GetComponent<Plus1> ().setColor (PLUSCOLOR.BLUE);
+			Plus.GetComponent<Plus1>( ).setColor( PLUSCOLOR.BLUE );
 			Destroy( gameObject );
 		}
 		//一定時間がすぎると死ぬ

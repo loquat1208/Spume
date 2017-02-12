@@ -9,7 +9,6 @@ public class LogText : MonoBehaviour {
     private GameSystem _game_system;
     private EventData _event_data;
     private GameObject _log_sub_select;
-	private bool _result_update;
 
     void Awake( ) {
         _game_system = GameObject.Find( "GameSystem" ).gameObject.GetComponent<GameSystem>( );
@@ -95,15 +94,12 @@ public class LogText : MonoBehaviour {
 			gameObject.GetComponent<Text>( ).text = "";
 			return;
 		}
-		if ( _result_update ) {
-			return;
-		}
 		string fuels;
 		string foods;
 		string water;
 		string guns;
 		string medi;
-		string repair;
+		//string repair;
 		string rods;
 		string pots;
 		string health;
@@ -113,7 +109,7 @@ public class LogText : MonoBehaviour {
 			water = _event_data.getData( _game_system.randEvent( ), EVENTDATA.T_SHIP_WATER ).ToString( );
 			guns = _event_data.getData( _game_system.randEvent( ), EVENTDATA.T_GUNS ).ToString( );
 			medi = _event_data.getData( _game_system.randEvent( ), EVENTDATA.T_MEDICAL_KITS ).ToString( );
-			repair = _event_data.getData( _game_system.randEvent( ), EVENTDATA.T_REPAIR_TOOLS ).ToString( );
+			//repair = _event_data.getData( _game_system.randEvent( ), EVENTDATA.T_REPAIR_TOOLS ).ToString( );
 			rods = _event_data.getData( _game_system.randEvent( ), EVENTDATA.T_RODS ).ToString( );
 			pots = _event_data.getData( _game_system.randEvent( ), EVENTDATA.T_POTS ).ToString( );
 			health = _event_data.getData( _game_system.randEvent( ), EVENTDATA.T_HEALTH ).ToString( );
@@ -123,20 +119,19 @@ public class LogText : MonoBehaviour {
 			water = _event_data.getData( _game_system.randEvent( ), EVENTDATA.F_SHIP_WATER ).ToString( );
 			guns = _event_data.getData( _game_system.randEvent( ), EVENTDATA.F_GUNS ).ToString( );
 			medi = _event_data.getData( _game_system.randEvent( ), EVENTDATA.F_MEDICAL_KITS ).ToString( );
-			repair = _event_data.getData( _game_system.randEvent( ), EVENTDATA.F_REPAIR_TOOLS ).ToString( );
+			//repair = _event_data.getData( _game_system.randEvent( ), EVENTDATA.F_REPAIR_TOOLS ).ToString( );
 			rods = _event_data.getData( _game_system.randEvent( ), EVENTDATA.F_RODS ).ToString( );
 			pots = _event_data.getData( _game_system.randEvent( ), EVENTDATA.F_POTS ).ToString( );
 			health = _event_data.getData( _game_system.randEvent( ), EVENTDATA.F_HEALTH ).ToString( );
 		}
-		gameObject.GetComponent<Text>( ).text = "FUELS : " + fuels
-											+ " FOODS : " + foods
-											+ " WATER : " + water + "\n"
-                                            + "ROD : " + rods
-                                            + " POT : " + pots
-											+ " REPAIRTOOL : " + repair + "\n"
-											+ "MEDIKIT : " + medi
-                                            + " GUN : " + guns
-											+ " HEALTH : " + health;
+		gameObject.GetComponent<Text>( ).text = "      " + fuels
+											+ "      " + foods
+											+ "      " + water
+											+ "      " + rods + "\n"
+                                            + "      " + pots
+											+ "      " + medi
+                                            + "      " + guns
+											+ "      " + health;
 	}
 
 	//RandomEventの説明

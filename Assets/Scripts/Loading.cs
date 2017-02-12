@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour {
-    private float _timer;
+	private float _timer;
     private GameObject _ship;
     private GameObject _sea;
 
@@ -16,6 +16,7 @@ public class Loading : MonoBehaviour {
 
     private void Start( ) {
         StartCoroutine( "LoadingScene" );
+		_timer = 0;
     }
 
     void Update( ) {

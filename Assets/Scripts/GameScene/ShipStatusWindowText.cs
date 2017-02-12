@@ -19,7 +19,6 @@ public class ShipStatusWindowText : MonoBehaviour {
                    + ": " + _ship_status.getResources( ).water.ToString( ) + "\n"
                    + ": " + _ship_status.getResources( ).guns.ToString( ) + "\n"
                    + ": " + _ship_status.getResources( ).medical_kits.ToString( ) + "\n"
-                   + ": " + _ship_status.getResources( ).repair_tools.ToString( ) + "\n"
                    + ": " + _ship_status.getResources( ).rods.ToString( ) + "\n"
                    + ": " + _ship_status.getResources( ).pots.ToString( ) + "\n";
     }

@@ -45,7 +45,9 @@ public class Bird : MonoBehaviour {
 
 	//魚のHPゲージが減ること（今は使わない）
 	public void Attack( ) {
-		_HP--;
+		if ( _game_system.GetComponent<ShipStatus>( ).getResources( ).guns != 0 ) {
+			_HP--;
+		}
 	}
 
 	public void setMaxHP( int max_hp ) {

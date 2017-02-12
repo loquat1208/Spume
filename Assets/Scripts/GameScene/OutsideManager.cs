@@ -267,6 +267,7 @@ public class OutsideManager : MonoBehaviour {
                 //Plus1を出す
                 Vector3 pos = _outside_chara.transform.position;
                 GameObject _plus = Instantiate( Plus1, pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
+				_plus.GetComponent<Plus1>( ).setColor( PLUSCOLOR.BLUE );
                 _plus.transform.parent = _outside_chara.transform;
 				//ShipのStatus変更
                 _ship_status.setWater( _ship_status.getResources( ).water + 1 );

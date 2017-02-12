@@ -34,6 +34,7 @@ public class InsideButton : MonoBehaviour {
             Vector3 speech_pos = status.getPos( ) + new Vector3( -50, 200, 0 );
             GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
             _speech.GetComponent<Speech>( ).setSpeech( inside_manager.gameObject, "残った食糧がない。" );
+			_speech.transform.parent = GameObject.Find( "UILayer" ).transform;
             return;
         }
 		//+1
@@ -52,6 +53,7 @@ public class InsideButton : MonoBehaviour {
             Vector3 speech_pos = status.getPos( ) + new Vector3( -40, 200, 0 );
             GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
             _speech.GetComponent<Speech>( ).setSpeech( inside_manager.gameObject, "水はもうないよ。" );
+			_speech.transform.parent = GameObject.Find( "UILayer" ).transform;
             return;
         }
 		//+1
@@ -88,6 +90,7 @@ public class InsideButton : MonoBehaviour {
             Vector3 speech_pos = status.getPos( ) + new Vector3( -50, 200, 0 );
             GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
             _speech.GetComponent<Speech>( ).setSpeech( inside_manager.gameObject, "痛いところがない。" );
+			_speech.transform.parent = GameObject.Find( "UILayer" ).transform;
             return;
         }
         if ( _ship_status.getResources( ).medical_kits <= 0 ) {
@@ -95,6 +98,7 @@ public class InsideButton : MonoBehaviour {
             Vector3 speech_pos = status.getPos( ) + new Vector3( -50, 200, 0 );
             GameObject _speech = Instantiate( Speech, speech_pos, new Quaternion( 0, 0, 0, 0 ) ) as GameObject;
             _speech.GetComponent<Speech>( ).setSpeech( inside_manager.gameObject, "医療キットがないんだ。" );
+			_speech.transform.parent = GameObject.Find( "UILayer" ).transform;
             return;
         }
         _ship_status.setMedicalKits( _ship_status.getResources( ).medical_kits - 1 );

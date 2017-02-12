@@ -6,13 +6,13 @@ public class InsideCharacterMenu : MonoBehaviour {
     private InsideManager inside_manager;
     private GameObject menus;
 	private GameObject status_window;
-	private GameObject log;
+	//private GameObject log;
 
     void Awake( ) {
 		inside_system = GameObject.Find( "InsideLayer" ).gameObject;
 		menus = GameObject.Find( "InsideMenus" ).gameObject;
 		status_window = GameObject.Find( "StatusWindow" ).gameObject;
-		log = GameObject.Find( "Log" ).gameObject;
+		//log = GameObject.Find( "Log" ).gameObject;
 	}
 
     void Start( ) {
