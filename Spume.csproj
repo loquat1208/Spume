@@ -112,6 +112,7 @@
     <Compile Include="Assets\Scripts\GameScene\InsideObject.cs" />
     <Compile Include="Assets\Scripts\GameScene\LayerChangeButton.cs" />
     <Compile Include="Assets\Scripts\GameScene\LogCharaImage.cs" />
+    <Compile Include="Assets\Scripts\GameScene\LogIcon.cs" />
     <Compile Include="Assets\Scripts\GameScene\LogManager.cs" />
     <Compile Include="Assets\Scripts\GameScene\LogText.cs" />
     <Compile Include="Assets\Scripts\GameScene\OptionButton.cs" />

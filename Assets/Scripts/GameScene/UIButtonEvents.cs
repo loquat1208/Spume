@@ -41,7 +41,6 @@ public class UIButtonEvents : MonoBehaviour {
 
     void Start( ) {
         Ship_status_window.SetActive( false );
-        Help_window.SetActive( false );
         option_layer.SetActive( false );
 		time_speed_save = 0;
     }
@@ -123,7 +122,7 @@ public class UIButtonEvents : MonoBehaviour {
         if ( Help_window.activeSelf ) {
             Help_window.SetActive( false );
         } else {
-            Help_window.transform.position = new Vector3( 0, 0, 0 );
+            //Help_window.transform.position = new Vector3( 0, 0, 0 );
             Help_window.SetActive( true );
         }
     }

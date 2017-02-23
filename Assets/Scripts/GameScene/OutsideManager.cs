@@ -225,7 +225,7 @@ public class OutsideManager : MonoBehaviour {
         //Fishing Update
 		if ( _state.Equals( OUTSIDE_STATE.FISHING ) ) {
             //成功確率（数字が高くなると確率があがる）
-            const int WORKING_SUCCESS_PROBABILITY = 4;
+            const int WORKING_SUCCESS_PROBABILITY = 2;
             int probability = Random.Range( 0, WORKING_SUCCESS_PROBABILITY );
             if ( probability != 0 ) {
 				//Plus1を出す

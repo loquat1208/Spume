@@ -414,6 +414,9 @@ public class MovieCut : MonoBehaviour {
                 Icon[ 0 ].color = new Color( 1, 1, 1, 0 );
                 Icon[ 1 ].color = new Color( 1, 1, 1, 1 );
             }
+            if ( _timer > 2f ) {
+                Icon[ 2 ].color = new Color( 1, 1, 1, 1 );
+            }
         }
 
         if ( cut_name == "Cut31" ) {

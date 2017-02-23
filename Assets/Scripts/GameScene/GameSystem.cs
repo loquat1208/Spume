@@ -112,7 +112,6 @@ public class GameSystem : MonoBehaviour {
 			PlayerPrefs.SetFloat( "Time", time );
 			PlayerPrefs.SetInt( "Days", 1 );
 			PlayerPrefs.Save( );
-			_help_window.SetActive( true );
 		} 
 		//ロードゲームの時
         days = PlayerPrefs.GetInt( "Days" );
@@ -217,6 +216,11 @@ public class GameSystem : MonoBehaviour {
 			if ( i.Equals( 90 ) ) {
                 outside_layer.GetComponent<OutsideManager>( ).NextDay( );
                 log.GetComponent<LogManager>( ).setLogOpen( true );
+                //1日はヘルプを出す
+                if ( days <= 1 ) {
+                    _help_window.transform.position = new Vector3( 0, 0, 0 );
+                    _help_window.SetActive( true );
+                }
 			}
 			//暗転
             fade.GetComponent<Image>( ).color = new Color( 0, 0, 0, Mathf.Sin( i * Mathf.PI / 180f ) );
