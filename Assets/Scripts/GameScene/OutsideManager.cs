@@ -464,6 +464,7 @@ public class OutsideManager : MonoBehaviour {
 
     public void EventYes( ) {
         _event_button.SetActive( false );
+		_chara_state_button.SetActive( false );
         //吹き出し
         Vector3 speech_pos = _outside_chara.transform.position + new Vector3( -40, 180, 0 );
         //Outsideに誰もいないときはできない。
