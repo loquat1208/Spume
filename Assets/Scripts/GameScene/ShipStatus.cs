@@ -91,49 +91,49 @@ public class ShipStatus : MonoBehaviour {
     }
     public void setFoods( int foods ) {
         resources.foods = foods;
-        if ( resources.foods <= 0 ) {
+        if ( resources.foods < 0 ) {
             resources.foods = 0;
             return;
         }
     }
     public void setWater( int water ) {
         resources.water = water;
-        if ( resources.water <= 0 ) {
+        if ( resources.water < 0 ) {
             resources.water = 0;
             return;
         }
     }
     public void setGuns( int guns ) {
         resources.guns = guns;
-        if ( resources.guns <= 0 ) {
+        if ( resources.guns < 0 ) {
             resources.guns = 0;
             return;
         }
     }
     public void setMedicalKits( int medical_kits ) {
         resources.medical_kits = medical_kits;
-        if ( resources.medical_kits <= 0 ) {
+        if ( resources.medical_kits < 0 ) {
             resources.medical_kits = 0;
             return;
         }
     }
     public void setRods( int rods ) {
         resources.rods = rods;
-        if ( resources.rods <= 0 ) {
+        if ( resources.rods < 0 ) {
             resources.rods = 0;
             return;
         }
     }
     public void setPots( int pots ) {
         resources.pots = pots;
-        if ( resources.pots <= 0 ) {
+        if ( resources.pots < 0 ) {
             resources.pots = 0;
             return;
         }
     }
     public void setRepairTools( int repair_tools ) {
         resources.repair_tools = repair_tools;
-        if ( resources.repair_tools <= 0 ) {
+        if ( resources.repair_tools < 0 ) {
             resources.repair_tools = 0;
             return;
         }

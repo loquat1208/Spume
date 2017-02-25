@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GaugeBar : MonoBehaviour {
@@ -20,15 +21,18 @@ public class GaugeBar : MonoBehaviour {
 
 	void Start( ) {
 		switch ( _outside_manager.getOutsideState( ) ) {
-			case OUTSIDE_STATE.EXPLORE:
-				_gauge_max = ( int )_event_data.getData( _game_system.randEvent( ), EVENTDATA.TIME );
+		case OUTSIDE_STATE.EXPLORE:
+			_gauge_max = (int)_event_data.getData (_game_system.randEvent (), EVENTDATA.TIME);
+			GetComponentInChildren<Text> ().text = "探査中";
 				break;
-			case OUTSIDE_STATE.FISHING:
-				_gauge_max = _outside_manager.getWorkingTime( );
-				break;
-			case OUTSIDE_STATE.WATER:
-				_gauge_max = _outside_manager.getWorkingTime( );
-				break;
+		case OUTSIDE_STATE.FISHING:
+			_gauge_max = _outside_manager.getWorkingTime ();
+			GetComponentInChildren<Text> ().text = "釣り中";
+			break;
+		case OUTSIDE_STATE.WATER:
+			_gauge_max = _outside_manager.getWorkingTime ();
+			GetComponentInChildren<Text> ().text = "浄水中";
+			break;
 		}
         _start_time = _game_system.getTime( );
     }

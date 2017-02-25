@@ -558,7 +558,11 @@ public class OutsideManager : MonoBehaviour {
         _ship_status.setPots( _ship_status.getResources( ).pots + f_pots );
         _ship_status.setShipBreak( f_ship_break );
         selected.setHealth( selected.getStatus( ).health + f_health );
-        selected.setDisease( f_disease );
+		if (f_disease == 1) {
+			selected.setDisease (true);
+		} else if (f_disease == 2) {
+			selected.setDisease (false);
+		}
     }
 
     public void changeStatusTrue( ) {
@@ -584,7 +588,11 @@ public class OutsideManager : MonoBehaviour {
         _ship_status.setPots( _ship_status.getResources( ).pots + t_pots );
         _ship_status.setShipBreak( t_ship_break );
         selected.setHealth( selected.getStatus( ).health + t_health );
-        selected.setDisease( t_disease );
+		if (t_disease == 1) {
+			selected.setDisease (true);
+		} else if (t_disease == 2) {
+			selected.setDisease (false);
+		}
     }
 
     bool isStatus( ) {

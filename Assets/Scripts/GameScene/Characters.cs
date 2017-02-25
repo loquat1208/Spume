@@ -42,7 +42,7 @@ public class Characters : MonoBehaviour {
     public int DECREASE_LOYALTY_DISSATISFACTION;
 
     void Awake( ) {
-        FULL_HEALTH = 100;
+        FULL_HEALTH = 10;
         for ( int i = 1; i < 7; i++ ) {
 			_chara_obj.Add( GameObject.Find( "Chara" + i.ToString( ) ).gameObject );
 			Status chara = _chara_obj[ i - 1 ].GetComponent<Status>( );

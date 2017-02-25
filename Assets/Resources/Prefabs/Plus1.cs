@@ -14,6 +14,7 @@ public class Plus1 : MonoBehaviour {
 	public Sprite Red;
 
 	private float _timer;
+	private PLUSCOLOR _color;
 
 	// Use this for initialization
 	void Start () {
@@ -25,13 +26,7 @@ public class Plus1 : MonoBehaviour {
         _timer += Time.deltaTime;
         gameObject.transform.position += new Vector3( 0, _timer, 0 );
 
-        if ( _timer >= 2.0f ) {
-            Destroy( gameObject );
-        }
-    }
-
-	public void setColor( PLUSCOLOR color ) {
-		switch (color) {
+		switch (_color) {
 		case PLUSCOLOR.GREEN:
 			gameObject.GetComponent<Image> ().sprite = Green;
 			break;
@@ -42,5 +37,13 @@ public class Plus1 : MonoBehaviour {
 			gameObject.GetComponent<Image> ().sprite = Red;
 			break;
 		}
+
+        if ( _timer >= 2.0f ) {
+            Destroy( gameObject );
+        }
+    }
+
+	public void setColor( PLUSCOLOR color ) {
+		_color = color;
 	}
 }

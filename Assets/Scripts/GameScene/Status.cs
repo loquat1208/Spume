@@ -70,9 +70,11 @@ public class Status : MonoBehaviour {
         if ( !character.death ) {
             PlayerPrefs.SetInt( gameObject.name + "Alive", 1 );
         }
-        if ( character.disease ) {
-            PlayerPrefs.SetInt( gameObject.name + "Disease", 1 );
-        }
+		if (character.disease) {
+			PlayerPrefs.SetInt (gameObject.name + "Disease", 1);
+		} else { 
+			PlayerPrefs.SetInt (gameObject.name + "Disease", 0);
+		}
         PlayerPrefs.Save( );
     }
 

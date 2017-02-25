@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bottle : MonoBehaviour {
 	public GameObject Plus;
-	public float Speed = 1f;
-	public float LifeTime = 20f;
+	public float Speed = 2f;
+	public float LifeTime = 50f;
 	public int _HP_max = 3;
 
 	private GameObject _game_system;
@@ -20,7 +20,7 @@ public class Bottle : MonoBehaviour {
 	void Start( ) {
 		_HP_max = 3;
 		_HP = _HP_max;
-		transform.position = new Vector3( 1000, -300, 0 );
+		transform.position = new Vector3( 1000, -280, 0 );
 		transform.parent = GameObject.Find( "Sea04" ).transform;
 	}
 
@@ -31,9 +31,9 @@ public class Bottle : MonoBehaviour {
 		//HPが０より小さいと死ぬ
 		if ( _HP <= 0 ) {
 			ShipStatus _ship_status = _game_system.GetComponent<ShipStatus>( );
-			_ship_status.setFoods( _ship_status.getResources( ).water + 1 );
-			Instantiate( Plus, transform.position, new Quaternion( ), GameObject.Find( "UILayer" ).gameObject.transform );
-			Plus.GetComponent<Plus1>( ).setColor( PLUSCOLOR.BLUE );
+			_ship_status.setWater( _ship_status.getResources( ).water + 1 );
+			GameObject _plus = Instantiate( Plus, transform.position, new Quaternion( ), GameObject.Find( "UILayer" ).gameObject.transform ) as GameObject;
+			_plus.GetComponent<Plus1>( ).setColor( PLUSCOLOR.BLUE );
 			Destroy( gameObject );
 		}
 		//一定時間がすぎると死ぬ

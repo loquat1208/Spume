@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Mouse : MonoBehaviour {
@@ -29,6 +30,12 @@ public class Mouse : MonoBehaviour {
 
     void Update( ) {
         _timer += Time.deltaTime * _game_system.GetComponent<GameSystem>( ).getTimerSpeed( );
+		//insideだけ見せる
+		if (_game_system.GetComponent<GameSystem> ().getLayer () != LAYER.INSIDE) {
+			gameObject.GetComponent<Image> ().enabled = false;
+		} else {
+			gameObject.GetComponent<Image> ().enabled = true;
+		}
 		//HPが０より小さいと死ぬ
         if ( _HP <= 0 ) {
             ShipStatus _ship_status = _game_system.GetComponent<ShipStatus>( );
